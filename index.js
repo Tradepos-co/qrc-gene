@@ -14,9 +14,8 @@ express()
     for (const [key, value] of Object.entries(req.body)) {
       data = key;
     }
-    console.log(data);
     var dataArr = JSON.parse(data)
-    console.log(dataArr.name);
+    console.log(dataArr);
     rsults = parseData(dataArr);
     console.log(rsults.toString('base64'))
     res.end(rsults.toString('base64'))
