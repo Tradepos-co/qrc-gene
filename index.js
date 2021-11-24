@@ -10,7 +10,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .post('/qrc', function(req, res){
 
-    console.log(req.body);
+    console.log(req.body.name);
     rsults = parseData(req.body);
 
     res.end('rsults')
