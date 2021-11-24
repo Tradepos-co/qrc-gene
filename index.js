@@ -13,7 +13,7 @@ express()
     console.log(req.body.name);
     rsults = parseData(req.body);
 
-    res.end(rsults)
+    res.end(rsults.toString('base64'))
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
