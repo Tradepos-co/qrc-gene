@@ -9,10 +9,16 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .post('/qrc', function(req, res){
+    var data = ''
 
-    console.log(req.body.name);
-    rsults = parseData(req.body);
-
+    for (const [key, value] of Object.entries(req.body)) {
+      data = key;
+    }
+    console.log(data);
+    var dataArr = JSON.parse(data)
+    console.log(dataArr.name);
+    rsults = parseData(dataArr);
+    console.log(rsults.toString('base64'))
     res.end(rsults.toString('base64'))
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
