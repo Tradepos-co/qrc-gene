@@ -11,12 +11,9 @@ express()
   .post('/qrc', function(req, res){
 
     console.log(req.body);
-    /* data = Buffer.concat([data]);
-    body = data.toString();
-    body = JSON.parse(body)
-    rsults = parseData(body); */
+    rsults = parseData(req.body);
 
-    res.end('hi')
+    res.end('rsults')
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
