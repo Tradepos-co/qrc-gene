@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser');
+const utf8 = require('utf8');
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
@@ -24,7 +25,7 @@ express()
 
 
 function parseData(data){
-  var name = getTLV(1, data.name);
+  var name = getTLV(1, utf8.decode(data.name));
   var vat_no = getTLV(2, data.vat_no);
   var date = getTLV(3, data.date);
   var total = getTLV(4, data.total);
