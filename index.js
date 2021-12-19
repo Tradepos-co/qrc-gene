@@ -38,6 +38,7 @@ function getTLV(tagNum, tagVal) {
   var bufnum = Buffer.from([tagNum], "utf8");
   var buflen = Buffer.from([tagVal.length], "utf8");
   var bufname = Buffer.from(tagVal, "utf8");
+  bufname = "H"+bufname;
   var bufArray = [bufnum, buflen, bufname];
   return Buffer.concat(bufArray);
 }
