@@ -25,7 +25,7 @@ express()
 
 
 function parseData(data){
-  var name = getTLV(1, data.name);
+  var name = getTLV(1, "H"+data.name);
   var vat_no = getTLV(2, data.vat_no);
   var date = getTLV(3, data.date);
   var total = getTLV(4, data.total);
@@ -37,7 +37,7 @@ function parseData(data){
 function getTLV(tagNum, tagVal) {
   var bufnum = Buffer.from([tagNum], "utf8");
   var buflen = Buffer.from([tagVal.length], "utf8");
-  var bufname = Buffer.from("H"+tagVal, "utf8");
+  var bufname = Buffer.from(tagVal, "utf8");
   var bufArray = [bufnum, buflen, bufname];
   return Buffer.concat(bufArray);
 }
