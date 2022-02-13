@@ -25,7 +25,7 @@ express()
 
 
 function parseData(data){
-  var name = getTLV(1, "H"+data.name);
+  var name = getTLV(1, data.name);
   var vat_no = getTLV(2, data.vat_no);
   var date = getTLV(3, data.date);
   var total = getTLV(4, data.total);
